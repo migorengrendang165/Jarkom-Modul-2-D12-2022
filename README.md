@@ -79,11 +79,41 @@ WISE akan dijadikan sebagai DNS Master, Berlint akan dijadikan DNS Slave, dan Ed
 #### Jawaban :
 Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping google.com`.
 
+<img src="https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/ping_google.png?raw=true" width="800" height="400">
+
 ### Soal 2
 Untuk mempermudah mendapatkan informasi mengenai misi dari Handler, bantulah Loid membuat website utama dengan akses wise.yyy.com dengan alias www.wise.yyy.com pada folder wise.
 
 #### Jawaban :
-Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
+Dibuat terlebih dahulu zone untuk `wise.d12.com`
+
+```
+zone "wise.D12.com" {
+    type master;
+    notify yes;
+    also-notify { 10.21.3.2; }; // Masukan IP Water7 tanpa tanda petik
+    allow-transfer { 10.21.3.2; }; // Masukan IP Water7 tanpa tanda petik
+    file "/etc/bind/wise/wise.D12.com";
+};
+```
+
+Kemudian file konfigurasinya yang berisi 
+
+```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     wise.D12.com. root.wise.D12.com. (
+                        2022102502      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@               IN      NS      wise.D12.com.
+@               IN      A       10.21.2.2
+```
 
 ### Soal 3
 Setelah itu ia juga ingin membuat subdomain eden.wise.yyy.com dengan alias www.eden.wise.yyy.com yang diatur DNS-nya di WISE dan mengarah ke Eden.
@@ -114,37 +144,3 @@ Untuk informasi yang lebih spesifik mengenai Operation Strix, buatlah subdomain 
 
 #### Jawaban :
 Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
-
-## 8 - 13
-Setting webserver untuk domain tersebut sesuai dengan address dari host yang dituju akan dipasang apache (Eden, Berlint, dan Wise)
-```
-apt-get install apache2
-```
-dan php 
-```
-apt-get install php
-``` 
-dan 
-```
-apt-get install libapache2-mod-php7.0
-```	
-
-1. Untuk domain www.wise.D12.com
-	![]([pic/wise webserver.png](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/wise%20webserver.png))
-	```
-	Alias "/home" "/var/www/wise.D12.com/index.php/home
-	```
-	adalah untuk mengubah routing dari www.wise.D12.com/index.php/home menjadi www.wise.D12.com/home
-	
-	kemudian 
-	```
-	a2ensite wise.D12.com
-	```
-	
-	dan lakukan restart apache
-	```
-	service apache2 restart
-	```
-	kemudian bisa mengambil resource soal wise dengan wget dan unzip dan dimasukkan ke dalam directory /var/www/www.wise.D12.com
-	![]([pic/wise webserver2.png](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/wise%20webserver2.png))
-2. 
