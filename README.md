@@ -113,38 +113,175 @@ $TTL    604800
 ;
 @               IN      NS      wise.D12.com.
 @               IN      A       10.21.2.2
+www             IN      CNAME   wise.D12.com.
 ```
+
+Hasil ping adalah sebagai berikut :
+
+<img src="https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/ping_wise_new.png?raw=true" width="800" height="200">
+
 
 ### Soal 3
 Setelah itu ia juga ingin membuat subdomain eden.wise.yyy.com dengan alias www.eden.wise.yyy.com yang diatur DNS-nya di WISE dan mengarah ke Eden.
 
 #### Jawaban :
-Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
+Melanjutkan konfigurasi pada nomor 2 :
+```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     wise.D12.com. root.wise.D12.com. (
+                        2022102502      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@               IN      NS      wise.D12.com.
+@               IN      A       10.21.2.2
+eden            IN      A       10.21.3.3
+www             IN      CNAME   wise.D12.com.
+www.eden        IN      CNAME   eden.wise.d12.com.
+```
+
+Hasil ping adalah sebagai berikut :
+
+<img src="https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/ping_eden.png?raw=true" width="800" height="200">
 
 ### Soal 4
 Buat juga reverse domain untuk domain utama.
 
 #### Jawaban :
-Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
+Dibuat konfigurasi baru sebagai berikut :
+```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     wise.D12.com. root.wise.D12.com. (
+                        2022102401      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+2.21.10.in-addr.arpa.   IN      NS      wise.D12.com.
+2                       IN      PTR     wise.D12.com.
+```
+
+Hasil pemeriksaan :
+
+<img src="https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/ptr.png?raw=true" width="400" height="50">
 
 ### Soal 5
 Agar dapat tetap dihubungi jika server WISE bermasalah, buatlah juga Berlint sebagai DNS Slave untuk domain utama.
 
 #### Jawaban :
-Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
+Diatur konfigurasi pada zone di WISE sebagai berikut :
+
+```
+zone "wise.D12.com" {
+    type master;
+    notify yes;
+    also-notify { 10.21.3.2; }; // Masukan IP Water7 tanpa tanda petik
+    allow-transfer { 10.21.3.2; }; // Masukan IP Water7 tanpa tanda petik
+    file "/etc/bind/wise/wise.D12.com";
+};
+```
+
+Dan konfigurasi zone di Berlint sebagai berikut :
+```
+zone "wise.D12.com" {
+    type slave;
+    masters { 10.21.2.2; };
+    file "/var/lib/bind/wise.D12.com";
+};
+```
 
 ### Soal 6
 Karena banyak informasi dari Handler, buatlah subdomain yang khusus untuk operation yaitu operation.wise.yyy.com dengan alias www.operation.wise.yyy.com yang didelegasikan dari WISE ke Berlint dengan IP menuju ke Eden dalam folder operation.
 
 #### Jawaban :
-Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
+Ditambahkan konfigurasi sebagai berikut pada WISE:
+
+```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     wise.D12.com. root.wise.D12.com. (
+                        2022102502      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@               IN      NS      wise.D12.com.
+@               IN      A       10.21.2.2
+eden            IN      A       10.21.3.3
+www             IN      CNAME   wise.D12.com.
+www.eden        IN      CNAME   eden.wise.d12.com.
+ns1             IN      A       10.21.3.3
+operation       IN      NS      ns1
+```
+
+Serta konfigurasi berikut pada Eden :
+```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     operation.wise.D12.com. root.operation.wise.D12.com. (
+                        2022102501      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      operation.wise.D12.com.
+@       IN      A       10.21.3.3
+www     IN      A       10.21.3.3
+```
+
+Dan juga menambahkan line berikut ke dalam `named.conf.options` :
+```
+//dnssec-validation auto;
+allow-query{any;};
+```
+
+Hasil ping adalah sebagai berikut :
+
+<img src="https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/ping_operation.png?raw=true" width="800" height="200">
 
 ### Soal 7
 Untuk informasi yang lebih spesifik mengenai Operation Strix, buatlah subdomain melalui Berlint dengan akses strix.operation.wise.yyy.com dengan alias www.strix.operation.wise.yyy.com yang mengarah ke Eden.
 
 #### Jawaban :
-Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
 
+Ditambahkan konfigurasi berikut pada Berlint :
+```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     operation.wise.D12.com. root.operation.wise.D12.com. (
+                        2022102501      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@               IN      NS      operation.wise.D12.com.
+@               IN      A       10.21.3.3
+www             IN      CNAME   operation.wise.d12.com.
+strix           IN      A       10.21.3.3
+www.strix       IN      CNAME   strix.operation.wise.D12.com.
+```
+
+Dengan hasil ping sebagai berikut :
+
+<img src="https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/ping_strix.png?raw=true" width="800" height="200">
 
 ## 8 - 13
 Setting webserver untuk domain tersebut sesuai dengan address dari host yang dituju akan dipasang apache (Eden, Berlint, dan Wise)
