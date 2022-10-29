@@ -182,7 +182,9 @@ apt-get install libapache2-mod-php7.0
 	
 	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/wise%20webserver2.png)
 2.  www.eden.wise.D12.com
-	![]([Jarkom-Modul-2-D12-2022/edenwebserver.png at main · migorengrendang165/Jarkom-Modul-2-D12-2022 (github.com)](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/edenwebserver.png))
+
+	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/edenwebserver.png)
+	
 	dilakukan directory listing dengan menambahkan pada `/etc/apache2/sites-available/eden.wise.D12.com.conf/`
 	```
 	<Directory /var/www/eden.wise.D12.com/public>
@@ -206,3 +208,5 @@ apt-get install libapache2-mod-php7.0
 	service apache2 restart
 	```
 	kemudian bisa mengambil resource soal wise dengan wget dan unzip dan dimasukkan ke dalam directory `/var/www/www.eden.wise.D12.com`
+	
+	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/edenwebserver2.png)
