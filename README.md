@@ -386,7 +386,7 @@ apt-get install libapache2-mod-php7.0
 	
 	`lynx www.eden.wise.D12.com/dowijabajdpow`
 	
-	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/lynxeden404.png)
+	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/lynx404.png)
 
 ## 14-15
 Setting agar www.strix.operation.wise.D12.com hanya bisa diakses oleh port 15000 dan 15500, dengan autentikasi username Twilight dan password opStrix dan file di /var/www/strix.operation.wise.d12. Untuk itu, perlu menambahkan konfigurasi virtual host untuk port 15000 dan 15500.
