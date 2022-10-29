@@ -114,3 +114,37 @@ Untuk informasi yang lebih spesifik mengenai Operation Strix, buatlah subdomain 
 
 #### Jawaban :
 Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
+
+## 8 - 13
+Setting webserver untuk domain tersebut sesuai dengan address dari host yang dituju akan dipasang apache (Eden, Berlint, dan Wise)
+```
+apt-get install apache2
+```
+dan php 
+```
+apt-get install php
+``` 
+dan 
+```
+apt-get install libapache2-mod-php7.0
+```	
+
+1. Untuk domain www.wise.D12.com
+	![](SS Modul 1/wise webserver.png)
+	```
+	Alias "/home" "/var/www/wise.D12.com/index.php/home
+	```
+	adalah untuk mengubah routing dari www.wise.D12.com/index.php/home menjadi www.wise.D12.com/home
+	
+	kemudian 
+	```
+	a2ensite wise.D12.com
+	```
+	
+	dan lakukan restart apache
+	```
+	service apache2 restart
+	```
+	kemudian bisa mengambil resource soal wise dengan wget dan unzip dan dimasukkan ke dalam directory /var/www/www.wise.D12.com
+	![](SS Modul 1/wise webserver2.png)
+2. 
