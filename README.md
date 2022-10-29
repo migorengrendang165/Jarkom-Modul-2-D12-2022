@@ -458,3 +458,4 @@ Dengan auth (port 15000 dan 15550):
 ![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/strixnotauth.png)
 
 ![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/messageImage_1667058418302.jpg)
+
