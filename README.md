@@ -318,6 +318,13 @@ apt-get install libapache2-mod-php7.0
 	kemudian bisa mengambil resource soal wise dengan wget dan unzip dan dimasukkan ke dalam directory `/var/www/www.wise.D12.com`
 	
 	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/wise%20webserver2.png)
+	
+	cek dengan `lynx www.wise.D12.com` untuk di host garden atau SSS
+	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/lynxwise.png)
+	`lynx www.wise.D12.com/index.php/home`
+	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/lynxwise.png)
+	`lynx www.wise.D12.com/home`
+	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/lynxwise.png)
 2.  www.eden.wise.D12.com
 
 	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/edenwebserver.png)
@@ -347,6 +354,16 @@ apt-get install libapache2-mod-php7.0
 	kemudian bisa mengambil resource soal wise dengan wget dan unzip dan dimasukkan ke dalam directory `/var/www/www.eden.wise.D12.com`
 	
 	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/edenwebserver2.png)
+	Kemudian cek di dalam host garden atau SSS
+	`lynx www.eden.wise.D12.com`
+	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/lynxeden.png)
+	`lynx wwww.eden.wise.D12.com/public/js`
+	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/lynxedenpublicjs.png)
+	`lynx www.eden.wise.D12.com/js`
+	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/lynxedenjs.png)
+	untuk 404
+	`lynx www.eden.wise.D12.com/dowijabajdpow`
+	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/lynxeden404.png)
 
 ## 14-15
 Setting agar www.strix.operation.wise.D12.com hanya bisa diakses oleh port 15000 dan 15500, dengan autentikasi username Twilight dan password opStrix dan file di /var/www/strix.operation.wise.d12. Untuk itu, perlu menambahkan konfigurasi virtual host untuk port 15000 dan 15500.
