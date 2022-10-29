@@ -1,6 +1,14 @@
 # Jarkom-Modul-2-D12-2022
 Praktikum Jaringan Komputer Modul 2 (DNS &amp; Web Server) 2022.
 
+## Anggota Kelompok:
+
+| Nama                           | NRP        | Nomor Yang dikerjakan |
+| ------------------------------ | ---------- | --------------------- |
+| Alexander 			 | 5025201247 | 1 - 7                 |
+| Hafizh Mufid Darussalam        | 5025201093 | 14 - 17               |
+| Januar Evan Zuriel Banjarnahor | 5025201210 | 8 - 13 		      |
+
 ### Topologi
 
 <img src="https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/topologi.png?raw=true" width="600" height="400">
