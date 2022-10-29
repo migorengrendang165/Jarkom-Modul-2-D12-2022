@@ -368,7 +368,7 @@ apt-get install libapache2-mod-php7.0
 	
 	`lynx wwww.eden.wise.D12.com/public/js`
 	
-	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/lynxedenpublicjs.png)
+	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/lynxedenpublic.png)
 	
 	`lynx www.eden.wise.D12.com/js`
 	
