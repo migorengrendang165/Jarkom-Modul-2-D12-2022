@@ -161,7 +161,7 @@ apt-get install libapache2-mod-php7.0
 ```	
 
 1. Untuk domain www.wise.D12.com
-	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/wise%20webserver.png)
+![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/wise%20webserver.png)
 	```
 	Alias "/home" "/var/www/wise.D12.com/index.php/home
 	```
@@ -177,5 +177,6 @@ apt-get install libapache2-mod-php7.0
 	service apache2 restart
 	```
 	kemudian bisa mengambil resource soal wise dengan wget dan unzip dan dimasukkan ke dalam directory /var/www/www.wise.D12.com
+	
 	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/wise%20webserver2.png)
 2. 
