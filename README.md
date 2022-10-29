@@ -347,3 +347,61 @@ apt-get install libapache2-mod-php7.0
 	kemudian bisa mengambil resource soal wise dengan wget dan unzip dan dimasukkan ke dalam directory `/var/www/www.eden.wise.D12.com`
 	
 	![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/edenwebserver2.png)
+
+## 14-15
+Setting agar www.strix.operation.wise.D12.com hanya bisa diakses oleh port 15000 dan 15500, dengan autentikasi username Twilight dan password opStrix dan file di /var/www/strix.operation.wise.d12. Untuk itu, perlu menambahkan konfigurasi virtual host untuk port 15000 dan 15500.
+```
+echo '
+<VirtualHost *:15000>
+ <Directory /var/www/strix.operation.wise.D12.com>
+  AuthType Basic
+  AuthName "Restricted Content"
+  AuthUserFile /var/www/strix.operation.wise.D12.com/.htpasswd
+  Require valid-user
+ </Directory>
+ ServerAdmin webmaster@localhost
+ DocumentRoot /var/www/strix.operation.wise.D12.com
+ ServerName strix.operation.wise.D12.com
+ ServerAlias www.strix.operation.wise.D12.com
+ ErrorLog ${APACHE_LOG_DIR}/error.log
+ CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+<VirtualHost *:15500>
+ <Directory /var/www/strix.operation.wise.D12.com>
+  AuthType Basic
+  AuthName "Restricted Content"
+  AuthUserFile /var/www/strix.operation.wise.D12.com/.htpasswd
+  Require valid-user
+ </Directory>
+ ServerAdmin webmaster@localhost
+ DocumentRoot /var/www/strix.operation.wise.D12.com
+ ServerName strix.operation.wise.D12.com
+ ServerAlias www.strix.operation.wise.D12.com
+ ErrorLog ${APACHE_LOG_DIR}/error.log
+ CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+' > /etc/apache2/sites-available/strix.operation.wise.D12.com.conf
+
+a2ensite strix.operation.wise.D12.com
+service2 apache2 reload
+service2 apache2 restart
+
+mkdir /var/www/strix.operation.wise.D12.com
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1bgd3B6VtDtVv2ouqyM8wLyZGzK5C9maT' -O /etc/apache2/sites-available/wise.zip
+unzip "/etc/apache2/sites-available/wise.zip
+mv -T strix.operation.wise /var/www/strix.operation.wise.D12.com
+
+echo '
+Listen 80
+Listen 15000
+Listen 15500
+' > /etc/apache2/ports.conf
+
+a2enmod rewrite
+service apache2 restart
+```
+Selanjutnya, setting untuk menambahkan username Twilight dan password opStrix
+```
+htpasswd -c -b /var/www/strix.operation.wise.D12.com/.htpasswd Twilight opStrix
+service apache2 restart
+```
