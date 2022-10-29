@@ -130,7 +130,7 @@ apt-get install libapache2-mod-php7.0
 ```	
 
 1. Untuk domain www.wise.D12.com
-	![](SS Modul 1/wise webserver.png)
+	![](pic/wise webserver.png)
 	```
 	Alias "/home" "/var/www/wise.D12.com/index.php/home
 	```
@@ -146,5 +146,5 @@ apt-get install libapache2-mod-php7.0
 	service apache2 restart
 	```
 	kemudian bisa mengambil resource soal wise dengan wget dan unzip dan dimasukkan ke dalam directory /var/www/www.wise.D12.com
-	![](SS Modul 1/wise webserver2.png)
+	![](pic/wise webserver2.png)
 2. 
