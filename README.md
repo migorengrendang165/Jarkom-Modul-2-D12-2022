@@ -77,4 +77,40 @@ iface eth0 inet static
 WISE akan dijadikan sebagai DNS Master, Berlint akan dijadikan DNS Slave, dan Eden akan digunakan sebagai Web Server. Terdapat 2 Client yaitu SSS, dan Garden. Semua node terhubung pada router Ostania, sehingga dapat mengakses internet.
 
 #### Jawaban :
-Berikut merupakan topologi yang telah dibuat 
+Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping google.com`.
+
+### Soal 2
+Untuk mempermudah mendapatkan informasi mengenai misi dari Handler, bantulah Loid membuat website utama dengan akses wise.yyy.com dengan alias www.wise.yyy.com pada folder wise.
+
+#### Jawaban :
+Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
+
+### Soal 3
+Setelah itu ia juga ingin membuat subdomain eden.wise.yyy.com dengan alias www.eden.wise.yyy.com yang diatur DNS-nya di WISE dan mengarah ke Eden.
+
+#### Jawaban :
+Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
+
+### Soal 4
+Buat juga reverse domain untuk domain utama.
+
+#### Jawaban :
+Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
+
+### Soal 5
+Agar dapat tetap dihubungi jika server WISE bermasalah, buatlah juga Berlint sebagai DNS Slave untuk domain utama.
+
+#### Jawaban :
+Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
+
+### Soal 6
+Karena banyak informasi dari Handler, buatlah subdomain yang khusus untuk operation yaitu operation.wise.yyy.com dengan alias www.operation.wise.yyy.com yang didelegasikan dari WISE ke Berlint dengan IP menuju ke Eden dalam folder operation.
+
+#### Jawaban :
+Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
+
+### Soal 7
+Untuk informasi yang lebih spesifik mengenai Operation Strix, buatlah subdomain melalui Berlint dengan akses strix.operation.wise.yyy.com dengan alias www.strix.operation.wise.yyy.com yang mengarah ke Eden.
+
+#### Jawaban :
+Dengan menambahkan IP NAT1 yaitu `192.168.122.1` sebagai nameserver, setiap host dapat mengakses internet. Sebagai contoh, dilakukan perintah `ping www.google.com`.
