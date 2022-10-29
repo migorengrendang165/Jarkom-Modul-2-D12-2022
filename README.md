@@ -445,3 +445,16 @@ Selanjutnya, setting untuk menambahkan username Twilight dan password opStrix
 htpasswd -c -b /var/www/strix.operation.wise.D12.com/.htpasswd Twilight opStrix
 service apache2 restart
 ```
+
+cek dengan menuliskan 
+`lynx www.strix.operation.wise.D12.com`
+Tanpa auth (port 80):
+
+![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/messageImage_1667058448546.jpg)
+
+`lynx www.strix.operation.wise.D12.com:15000 atau 15500`
+Dengan auth (port 15000 dan 15550):
+
+![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/strixnotauth.png)
+
+![](https://github.com/migorengrendang165/Jarkom-Modul-2-D12-2022/blob/main/SS%20Modul%201/messageImage_1667058418302.jpg)
