@@ -7,7 +7,7 @@ Praktikum Jaringan Komputer Modul 2 (DNS &amp; Web Server) 2022.
 | ------------------------------ | ---------- | --------------------- |
 | Alexander 			 | 5025201247 | 1 - 7                 |
 | Hafizh Mufid Darussalam        | 5025201093 | 14 - 17               |
-| Januar Evan Zuriel Banjarnahor | 5025201210 | 8 - 13 		      |
+| Januar Evan Zuriel Banjarnahor | 5025201210 | 8 - 15 		      |
 
 ### Topologi
 
